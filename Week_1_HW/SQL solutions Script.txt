@@ -1,0 +1,17 @@
+Question 3:
+How many taxi trips were totally made on January 15?
+SELECT CAST(lpep_pickup_datetime AS DATE) as "day" , COUNT(1) AS "count" FROM green_tripdata t group by CAST(l
+pep_pickup_datetime AS DATE) order by "count" DESC;
+
+Question 4:
+ SELECT CAST(lpep_dropoff_datetime AS DATE) as "day" , COUNT(1) , trip_distance FROM green_tripdata t group by
+ CAST(lpep_dropoff_datetime AS DATE) , trip_distance;
+
+Question 5:
+
+ SELECT CAST(lpep_pickup_datetime AS DATE) as "day" , COUNT(1) AS "count" , passenger_count FROM green_tripdata
+  t group by  CAST(lpep_pickup_datetime AS DATE),passenger_count;
+Question 6:
+SELECT max(t.tip_amount),z."Zone",z."LocationID"  FROM green_tripdata as t inner join zones as z on t."DOLocat
+ ionID"=z."LocationID" WHERE t."PULocationID" = 7 AND z."Zone" = 'Long Island City/Queens Plaza
+ ' group by t.tip_amount,z."Zone",z."LocationID";
